@@ -9,10 +9,10 @@ export default function Preloader({ onFinished }) {
     const start = performance.now();
     let raf;
     const tick = (now) => {
-      const pct = Math.min(100, ((now - start) / 1200) * 100);
+      const pct = Math.min(100, ((now - start) / 800) * 100);
       setProgress(pct);
       if (pct < 100) raf = requestAnimationFrame(tick);
-      else setTimeout(() => setHidden(true), 200);
+      else setTimeout(() => setHidden(true), 100);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);

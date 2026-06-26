@@ -10,10 +10,9 @@ export const skillBoxes = [
 ];
 
 export const timeline = [
-  { id: 't1', title: 'IEEE Computer Society — Technical Core Team', date: '2026', description: 'Architected a full-stack RAG hiring platform with hybrid retrieval fusion (dense + BM25 + HyDE via RRF), three-layer defense system (19 regex guardrails + LLM gatekeeper + auditor), 20+ file-format ingestion via marker-pdf.', location: 'Jaipur, India', city: 'Jaipur' },
-  { id: 't2', title: 'IEEE Computer Society — Technical Junior Team', date: '2025', description: 'Contributed to backend modules and evaluation tooling for the Hiring-Assistant platform; first exposure to RRF fusion and cross-encoder re-ranking.', location: 'Jaipur, India', city: 'Jaipur' },
+  { id: 't1', title: 'IEEE Computer Society — Technical Core Team', date: '2026', description: 'Architected a full-stack RAG hiring platform with 17 modules across 8,500 lines — hybrid retrieval fusion (dense vector + BM25 + HyDE with RRF), cross-encoder re-ranking, and defense-in-depth safety system blocking 80%+ of adversarial attacks.', location: 'Manipal University Jaipur, India', city: 'Jaipur' },
+  { id: 't2', title: 'IEEE Computer Society — Technical Junior Team', date: '2025', description: 'Contributed to backend modules and evaluation tooling for the Hiring-Assistant platform; first exposure to RRF fusion and cross-encoder re-ranking.', location: 'Manipal University Jaipur, India', city: 'Jaipur' },
   { id: 't3', title: 'WhiteHat Jr — Python Development', date: '2021', description: 'Collaborated remotely on Python-based projects during the pandemic, building a strong foundation in data analysis and visualization using NumPy, Pandas, and Matplotlib.', location: 'Delhi, India (Remote)', city: 'Delhi' },
-  { id: 't4', title: 'Self-Hosted Infrastructure', date: '2024 - Present', description: 'Architected a complete homelab ecosystem: Proxmox hypervisor on a 6-year-old pandemic PC running Docker LXC + Coolify PaaS, FRP tunnels through Oracle Cloud free-tier VPS, Tailscale mesh VPN, Cloudflare Tunnel — supporting 10+ services across 5 domains with zero monthly hosting cost.', location: 'Jaipur, India', city: 'Jaipur' },
 ];
 
 export const education = [

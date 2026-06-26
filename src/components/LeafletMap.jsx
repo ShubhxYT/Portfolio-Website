@@ -1,4 +1,5 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { useEffect } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -16,6 +17,8 @@ const LOCATIONS = [
   { coords: [12.9716, 77.5946], city: 'Bangalore' },
 ];
 
+const INITIAL_VIEW = { center: [21, 77], zoom: 5 };
+
 const buildIcon = (city, isCurrent) =>
   L.divIcon({
     className: isCurrent ? 'neo-marker neo-marker-current' : 'neo-marker',
@@ -28,14 +31,51 @@ const buildIcon = (city, isCurrent) =>
     popupAnchor: [0, isCurrent ? -50 : -45],
   });
 
+function HomeButton() {
+  const map = useMap();
+
+  useEffect(() => {
+    const HomeControl = L.Control.extend({
+      onAdd: function () {
+        const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-home');
+        const link = L.DomUtil.create('a', '', container);
+        link.href = '#';
+        link.title = 'Reset map view';
+        link.innerHTML = '<i class="fas fa-home"></i>';
+        L.DomEvent.on(link, 'click', function (e) {
+          e.preventDefault();
+          map.setView(INITIAL_VIEW.center, INITIAL_VIEW.zoom);
+        });
+        return container;
+      },
+    });
+    const ctrl = new HomeControl({ position: 'topright' });
+    ctrl.addTo(map);
+    return () => { map.removeControl(ctrl); };
+  }, [map]);
+
+  return null;
+}
+
+function MapFlyTo({ panTo }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (panTo) {
+      map.flyTo(panTo, 8, { duration: 1 });
+    }
+  }, [panTo, map]);
+
+  return null;
+}
+
 export default function LeafletMap({ panTo }) {
   return (
     <MapContainer
-      center={[21, 77]}
-      zoom={5}
+      center={INITIAL_VIEW.center}
+      zoom={INITIAL_VIEW.zoom}
       scrollWheelZoom={false}
-      className="w-full h-[400px] border-neo border-border shadow-neo"
-      ref={(m) => { if (m && panTo) m.flyTo(panTo, 8, { duration: 1 }); }}
+      className="w-full h-full border-none"
     >
       <TileLayer
         url="https://watercolormaps.collection.cooperhewitt.org/tile/watercolor/{z}/{x}/{y}.jpg"
@@ -47,13 +87,16 @@ export default function LeafletMap({ panTo }) {
         return (
           <Marker key={loc.city} position={loc.coords} icon={buildIcon(loc.city, isCurrent)}>
             <Popup>
-              <div className="font-mono">
-                <strong className="text-sm">{loc.city}</strong>
+              <div className="map-popup">
+                <div className="map-popup-country">{loc.city}</div>
                 {loc.companies?.map((c, i) => (
-                  <div key={i} className="border-t border-black/20 my-1 pt-1">
-                    <div className="font-bold text-xs">{c.company}</div>
-                    <div className="text-xs">{c.role}</div>
-                    <div className="text-xs italic">{c.period}</div>
+                  <div key={i}>
+                    {i > 0 && <div className="map-popup-divider" />}
+                    <div className="map-popup-company">
+                      <strong>{c.company}</strong>
+                      <span>{c.role}</span>
+                      <small>{c.period}</small>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -61,6 +104,8 @@ export default function LeafletMap({ panTo }) {
           </Marker>
         );
       })}
+      <HomeButton />
+      <MapFlyTo panTo={panTo} />
     </MapContainer>
   );
 }

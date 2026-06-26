@@ -6,13 +6,13 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
-          'motion-vendor': ['framer-motion', 'motion', 'gsap'],
-          'three-core': ['three'],
-          'r3f-vendor': ['@react-three/fiber', '@react-three/drei', '@react-three/rapier'],
-          'ui-vendor': ['react-icons', 'lucide-react', 'clsx', 'tailwind-merge'],
-          'mesh-vendor': ['meshline'],
+        manualChunks(id) {
+          if (id.includes('node_modules/react-dom') || id.includes('node_modules/react/')) return 'react-vendor';
+          if (id.includes('node_modules/framer-motion') || id.includes('node_modules/motion/') || id.includes('node_modules/gsap')) return 'motion-vendor';
+          if (id.includes('node_modules/three')) return 'three-core';
+          if (id.includes('node_modules/@react-three')) return 'r3f-vendor';
+          if (id.includes('node_modules/react-icons') || id.includes('node_modules/lucide-react') || id.includes('node_modules/clsx') || id.includes('node_modules/tailwind-merge')) return 'ui-vendor';
+          if (id.includes('node_modules/meshline')) return 'mesh-vendor';
         },
       },
     },
