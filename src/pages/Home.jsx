@@ -1,1 +1,9 @@
-export default function Home() { return <div className="pt-32 px-8">Home (stub)</div>; }
+import Hero from '../sections/Hero.jsx';
+
+export default function Home() {
+  return (
+    <main className="relative z-10">
+      <Hero />
+    </main>
+  );
+}
