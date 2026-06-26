@@ -3,6 +3,7 @@ import PaperTear from '../components/PaperTear.jsx';
 import About from '../sections/About.jsx';
 import Journey from '../sections/Journey.jsx';
 import Skills from '../sections/Skills.jsx';
+import Projects from '../sections/Projects.jsx';
 import Education from '../sections/Education.jsx';
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <About />
       <Journey />
       <Skills />
+      <Projects />
       <Education />
     </main>
   );

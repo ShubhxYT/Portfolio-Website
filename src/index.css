@@ -26,6 +26,8 @@
   body {
     background-color: var(--bg);
     color: var(--text);
+    font-family: "Fira Code", "Courier New", Courier, monospace;
+    font-weight: 500;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 

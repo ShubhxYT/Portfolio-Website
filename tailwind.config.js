@@ -6,7 +6,7 @@ export default {
     extend: {
       fontFamily: {
         grotesk: ['"Space Grotesk"', 'sans-serif'],
-        mono: ['"Space Mono"', 'monospace'],
+        mono: ['"Fira Code"', 'monospace'],
         caveat: ['"Caveat"', 'cursive'],
         fira: ['"Fira Code"', 'monospace'],
       },

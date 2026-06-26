@@ -15,7 +15,7 @@ export default function Skills() {
             }`}
           >
             <div className="flex items-center gap-3 mb-3">
-              <i className={`fa ${b.icon} text-2xl text-primary`} />
+              <i className={`fa-solid ${b.icon} text-2xl text-primary`} />
               <h3 className="font-grotesk font-bold text-base uppercase">{b.name}</h3>
             </div>
             <div className="flex flex-wrap gap-1.5">
