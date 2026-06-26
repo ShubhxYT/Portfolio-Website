@@ -78,10 +78,10 @@ export default function Hero() {
       </div>
 
       {/* Right column: 3D lanyard */}
-      <div className="flex-1 w-full hidden lg:block">
+      <div className="flex-1 w-full hidden lg:block self-stretch">
         <Suspense
           fallback={
-            <div className="h-screen flex items-center justify-center text-text font-mono text-sm">
+            <div className="h-[calc(100vh-7rem)] flex items-center justify-center text-text font-mono text-sm">
               Loading 3D…
             </div>
           }
