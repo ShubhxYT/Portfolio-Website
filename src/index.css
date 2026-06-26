@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #ffffff;
+    --text: #000000;
+    --border: #000000;
+    --primary: #66d9ef;
+    --yellow: #ffd93d;
+    --accent: #a8e6cf;
+    --pink: #ff6b9d;
+    --white: #ffffff;
+    --cyan: #66d9ef;
+  }
+
+  .dark {
+    --bg: #1a1a1a;
+    --text: #ffffff;
+    --border: #a8e6cf;
+    --white: #2a2a2a;
+    /* primary/yellow/accent/pink/cyan keep light values */
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+}
+
+@layer utilities {
+  .animate-blink { animation: blink 1s step-end infinite; }
+}
