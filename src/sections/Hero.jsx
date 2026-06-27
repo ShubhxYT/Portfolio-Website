@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative z-10 min-h-screen max-w-7xl mx-auto px-4 pt-24 pb-16 flex flex-col lg:flex-row items-center gap-8"
+      className="relative z-10 min-h-screen max-w-[1600px] mx-auto px-6 lg:px-8 pt-24 pb-16 flex flex-col lg:flex-row items-center gap-12"
     >
       {/* Left column */}
       <div className="flex-1 flex flex-col gap-6">

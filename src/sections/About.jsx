@@ -23,13 +23,13 @@ function Counter({ value, suffix = '' }) {
 
 export default function About() {
   return (
-    <section id="about" className="relative z-10 max-w-7xl mx-auto px-4 py-16">
-      <h2 className="font-grotesk font-bold text-3xl md:text-4xl uppercase text-text mb-8 inline-block border-b-neo border-border pb-2">
+    <section id="about" className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-8 py-20">
+      <h2 className="font-grotesk font-bold text-4xl md:text-5xl uppercase mb-10 inline-block px-4 py-2 bg-yellow border-neo border-border shadow-neo">
         About
       </h2>
       <div className="grid lg:grid-cols-2 gap-8">
-        <div className="p-6 border-neo border-border bg-white shadow-neo">
-          <p className="font-mono text-text leading-relaxed text-sm md:text-base">
+        <div className="p-8 border-4 border-border bg-white shadow-neo">
+          <p className="font-grotesk text-text leading-relaxed text-base md:text-lg">
             Self-taught AI engineer and third-year computer science student at Manipal University Jaipur.
             Deep expertise building production-grade RAG systems, computer vision pipelines, and
             full-stack AI applications. Engineered 28+ GitHub repositories spanning multi-service LLM
@@ -56,12 +56,12 @@ export default function About() {
           {STATS.map((s) => (
             <div
               key={s.label}
-              className="p-6 border-neo border-border bg-white shadow-neoSm flex flex-col items-center justify-center text-center"
+              className="p-8 border-4 border-border bg-white shadow-neo flex flex-col items-center justify-center text-center hover:translate-x-1 hover:translate-y-1 hover:shadow-none hover:bg-accent transition-all"
             >
-              <div className="font-grotesk font-bold text-3xl md:text-4xl text-primary">
+              <div className="font-grotesk font-bold text-5xl md:text-6xl text-primary">
                 <Counter value={s.value} suffix={s.suffix} />
               </div>
-              <div className="font-mono text-xs uppercase mt-2 text-text">{s.label}</div>
+              <div className="font-grotesk font-bold text-sm uppercase mt-3 text-text">{s.label}</div>
             </div>
           ))}
         </div>

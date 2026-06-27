@@ -62,8 +62,8 @@ export default function Journey() {
   };
 
   return (
-    <section id="journey" className="relative z-10 max-w-7xl mx-auto px-4 py-16 journey-section">
-      <h2 className="font-grotesk font-bold text-3xl md:text-4xl uppercase mb-8 inline-block border-b-neo border-border pb-2">
+    <section id="journey" className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-8 py-20 journey-section">
+      <h2 className="font-grotesk font-bold text-4xl md:text-5xl uppercase mb-10 inline-block px-4 py-2 bg-yellow border-neo border-border shadow-neo">
         My Journey
       </h2>
 
