@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ButtonMovingBorder } from '../components/MovingBorderButton.jsx';
 import { STATS } from '../lib/data.js';
+import ScrollHighlight from '../components/ScrollHighlight.jsx';
 
 function Counter({ value, suffix = '' }) {
   const ref = useRef(null);
@@ -30,13 +31,35 @@ export default function About() {
       <div className="grid lg:grid-cols-2 gap-8">
         <div className="p-8 border-4 border-border bg-white shadow-neo">
           <p className="font-grotesk text-text leading-relaxed text-base md:text-lg">
-            Self-taught AI engineer and third-year computer science student at Manipal University Jaipur.
-            Deep expertise building production-grade RAG systems, computer vision pipelines, and
-            full-stack AI applications. Engineered 28+ GitHub repositories spanning multi-service LLM
-            orchestration, LangGraph state machines, and self-hosted infrastructure serving 10+ live
-            services across 5 custom domains with zero recurring cost. Combines strong Python/TypeScript
-            engineering with hands-on DevOps (Docker, Proxmox, Coolify) to ship real products from
-            bare metal to browser.
+            Self-taught artificial intelligence engineer and third-year computer
+            science student with deep expertise building{' '}
+            <ScrollHighlight color="yellow">production-grade RAG systems</ScrollHighlight>
+            ,{' '}
+            <ScrollHighlight color="pink">computer vision pipelines</ScrollHighlight>
+            , and{' '}
+            <ScrollHighlight color="cyan">full-stack AI applications</ScrollHighlight>
+            . Engineered{' '}
+            <ScrollHighlight color="green">28+ GitHub repositories</ScrollHighlight>{' '}
+            spanning multi-service LLM orchestration, LangGraph state machines, and
+            self-hosted infrastructure.
+          </p>
+          <p className="font-grotesk text-text leading-relaxed text-base md:text-lg mt-4">
+            Combines strong{' '}
+            <ScrollHighlight color="cyan">Python/TypeScript engineering</ScrollHighlight>{' '}
+            with hands-on DevOps to ship real products — from{' '}
+            <ScrollHighlight color="pink">bare metal to browser</ScrollHighlight>
+            . Runs 10+ live services across 5 custom domains with{' '}
+            <ScrollHighlight color="yellow">zero recurring cost</ScrollHighlight>{' '}
+            on repurposed consumer hardware.
+          </p>
+          <p className="font-grotesk text-text leading-relaxed text-base md:text-lg mt-4">
+            Passionate about pushing the boundaries of what's possible with{' '}
+            <ScrollHighlight color="yellow">self-hosted AI infrastructure</ScrollHighlight>
+            ,{' '}
+            <ScrollHighlight color="green">hybrid retrieval systems</ScrollHighlight>
+            , and building{' '}
+            <ScrollHighlight color="cyan">tools that real people use</ScrollHighlight>
+            .
           </p>
           <div className="flex gap-3 mt-6">
             <ButtonMovingBorder

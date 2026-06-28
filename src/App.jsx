@@ -3,7 +3,6 @@ import { AnimatePresence } from 'framer-motion';
 import { Agentation } from 'agentation';
 import Header from './components/Header.jsx';
 import Squares from './components/Squares.jsx';
-import FloatingThemeToggle from './components/FloatingThemeToggle.jsx';
 import { NavbarProvider } from './contexts/NavbarContext.jsx';
 import { useTheme } from './contexts/ThemeContext.jsx';
 import Home from './pages/Home.jsx';
@@ -38,8 +37,6 @@ function App() {
             <Route path="/resume" element={<Resume />} />
           </Routes>
         </AnimatePresence>
-
-        <FloatingThemeToggle />
 
         {process.env.NODE_ENV === "development" && <Agentation />}
       </div>

@@ -377,6 +377,33 @@
   }
 }
 
+/* ===== Scroll Highlight ===== */
+.highlight {
+  padding: 0.1rem 0.5rem;
+  font-weight: 600;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 0.25rem 0.1rem;
+  position: relative;
+  background: transparent;
+  z-index: 1;
+}
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: var(--highlight-progress, 0%);
+  height: calc(100% + 4px);
+  z-index: -1;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+.highlight-yellow::before { background: var(--yellow); }
+.highlight-cyan::before   { background: var(--cyan); }
+.highlight-pink::before   { background: var(--pink); }
+.highlight-green::before  { background: var(--accent); }
+
 @layer utilities {
   .animate-blink { animation: blink 1s step-end infinite; }
 }
