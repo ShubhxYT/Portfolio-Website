@@ -56,13 +56,13 @@ export default function Projects() {
             const hoverColors = ['hover:bg-cyan', 'hover:bg-yellow', 'hover:bg-pink', 'hover:bg-accent', 'hover:bg-cyan', 'hover:bg-pink', 'hover:bg-yellow', 'hover:bg-accent'];
             const isWide = i >= 6;
             return (
-            <div key={b.name} className={`relative overflow-hidden border-4 border-border shadow-neo hover:translate-x-2 hover:translate-y-2 hover:shadow-none transition-all ${b.highlight ? 'bg-yellow' : 'bg-white'} ${isWide ? 'lg:col-span-3' : 'lg:col-span-2'}`}>
+            <div key={b.name} className={`relative overflow-hidden border-4 border-border p-8 shadow-neo hover:translate-x-2 hover:translate-y-2 hover:shadow-none transition-all ${b.highlight ? 'bg-yellow' : 'bg-white'} ${isWide ? 'lg:col-span-3' : 'lg:col-span-2'}`}>
               <div className={`absolute top-0 left-0 w-full h-[6px] ${barColors[i] || 'bg-primary'}`} />
-              <div className="flex items-center gap-4 mb-6 pt-5 pb-4 px-8 border-b-4 border-border">
+              <div className="flex items-center gap-4 mb-6 pb-4 border-b-4 border-border">
                 <i className={`fa-solid ${b.icon} text-5xl ${iconColors[i] || 'text-primary'}`} />
-                <h3 className="font-grotesk font-bold text-2xl uppercase">{b.name}</h3>
+                <h3 className="font-grotesk font-bold text-2xl uppercase tracking-tighter">{b.name}</h3>
               </div>
-              <div className="grid grid-cols-2 gap-3 px-8 pb-8">
+              <div className="grid grid-cols-2 gap-3">
                 {b.tags.map((t) => (
                   <span key={t.name} className={`inline-flex items-center gap-2 px-3 py-2 border-[3px] border-border bg-white shadow-[3px_3px_0_var(--border)] font-mono font-bold text-sm text-text ${hoverColors[i] || 'hover:bg-yellow'} hover:text-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-pointer`}>
                     <i className={`${t.icon} text-base`} />
