@@ -62,7 +62,7 @@ export default function Projects() {
                 <i className={`fa-solid ${b.icon} text-5xl ${iconColors[i] || 'text-primary'}`} />
                 <h3 className="font-grotesk font-bold text-2xl uppercase tracking-tighter">{b.name}</h3>
               </div>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="flex flex-wrap gap-3">
                 {b.tags.map((t) => (
                   <span key={t.name} className={`inline-flex items-center gap-2 px-3 py-2 border-[3px] border-border bg-white shadow-[3px_3px_0_var(--border)] font-mono font-bold text-sm text-text ${hoverColors[i] || 'hover:bg-yellow'} hover:text-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-pointer`}>
                     <i className={`${t.icon} text-base`} />

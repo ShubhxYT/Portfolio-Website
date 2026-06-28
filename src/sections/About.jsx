@@ -56,12 +56,12 @@ export default function About() {
           {STATS.map((s) => (
             <div
               key={s.label}
-              className="p-8 border-4 border-border bg-white shadow-neo flex flex-col items-center justify-center text-center hover:translate-x-1 hover:translate-y-1 hover:shadow-none hover:bg-accent transition-all"
+              className="p-6 border-4 border-border bg-white shadow-neo flex flex-col items-center justify-center text-center hover:translate-x-1 hover:translate-y-1 hover:shadow-none hover:bg-accent transition-all"
             >
-              <div className="font-grotesk font-bold text-5xl md:text-6xl text-primary">
+              <div className="font-grotesk font-bold text-4xl md:text-5xl text-primary">
                 <Counter value={s.value} suffix={s.suffix} />
               </div>
-              <div className="font-grotesk font-bold text-sm uppercase mt-3 text-text">{s.label}</div>
+              <div className="font-grotesk font-bold text-xs uppercase mt-2 text-text">{s.label}</div>
             </div>
           ))}
         </div>
