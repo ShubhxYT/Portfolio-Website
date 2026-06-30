@@ -377,6 +377,85 @@
   }
 }
 
+/* ===== Paper Tear Effect ===== */
+.paper-tear {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.paper-tear-top {
+  margin-top: -1px;
+  margin-bottom: -1px;
+  position: relative;
+  z-index: 1;
+}
+.paper-tear-bottom {
+  margin-top: -1px;
+  margin-bottom: -1px;
+  position: relative;
+  z-index: 3;
+  perspective: 1000px;
+}
+.paper-tear svg {
+  display: block;
+  width: 100%;
+  height: 30px;
+}
+
+.page-gap {
+  width: 100%;
+  height: 200px;
+  background: #d0d0d0;
+  position: relative;
+}
+
+.tear-tape-sticker {
+  position: fixed;
+  top: var(--tape-position, 0);
+  right: 10%;
+  width: 120px;
+  height: 45px;
+  background: rgba(255, 217, 61, 0.7);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  transform-origin: left center;
+  z-index: 50;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+}
+.tear-tape-sticker::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateY(-50%);
+}
+.tear-tape-sticker::after {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.dark .page-gap { background: #2a2a2a; }
+.dark .paper-tear svg path[fill="#d0d0d0"] { fill: #2a2a2a; }
+.dark .paper-tear svg path[fill="#ffffff"] { fill: #1a1a1a; }
+
+@media (max-width: 768px) {
+  .paper-tear-top,
+  .page-gap,
+  .tear-tape-sticker { display: none; }
+  .paper-tear-bottom svg { height: 20px; }
+  .paper-tear-bottom svg path[fill="#d0d0d0"],
+  .paper-tear-bottom svg path[fill="#ffffff"] { display: none; }
+}
+
 /* ===== Scroll Highlight ===== */
 .highlight {
   padding: 0.1rem 0.5rem;

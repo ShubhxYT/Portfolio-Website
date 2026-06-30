@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative z-10 min-h-screen max-w-[1600px] mx-auto px-6 lg:px-8 pt-20 pb-12 flex flex-col lg:flex-row items-center gap-10"
+      className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-8 pt-8 pb-12 flex flex-col lg:flex-row items-center gap-10"
     >
       {/* Left column */}
       <div className="flex-1 flex flex-col gap-6">
@@ -42,8 +42,8 @@ export default function Hero() {
             as="a"
             href="#projects"
             borderRadius="0px"
-            containerClassName="h-12 w-40"
-            className="bg-yellow !text-text border-border font-grotesk font-bold uppercase text-sm tracking-wider"
+            containerClassName="h-16 w-48"
+            className="bg-yellow !text-text border-border font-grotesk font-bold uppercase text-base tracking-wider"
           >
             View Projects
           </ButtonMovingBorder>
@@ -51,8 +51,8 @@ export default function Hero() {
             as="a"
             href="/resume"
             borderRadius="0px"
-            containerClassName="h-12 w-40"
-            className="bg-white !text-text border-border font-grotesk font-bold uppercase text-sm tracking-wider"
+            containerClassName="h-16 w-48"
+            className="bg-white !text-text border-border font-grotesk font-bold uppercase text-base tracking-wider"
           >
             Open Resume
           </ButtonMovingBorder>
@@ -81,7 +81,7 @@ export default function Hero() {
       <div className="flex-1 w-full hidden lg:block self-stretch">
         <Suspense
           fallback={
-            <div className="h-[calc(100vh-7rem)] flex items-center justify-center text-text font-mono text-sm">
+            <div className="h-[600px] flex items-center justify-center text-text font-mono text-sm">
               Loading 3D…
             </div>
           }

@@ -7,12 +7,13 @@ import * as THREE from 'three';
 
 const cardGLB = '/models/card.glb';
 import lanyard from '../../assets/Lanyard/lanyard.png';
+import cfg from './config';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
-export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true }) {
+export default function Lanyard({ position = cfg.camera.position, gravity = cfg.camera.gravity, fov = cfg.camera.fov, transparent = cfg.camera.transparent }) {
   return (
-    <div className="relative z-0 w-full h-screen flex justify-center items-center transform scale-100 origin-center">
+    <div className={`relative z-0 w-full ${cfg.container.height} flex justify-center items-center transform scale-100 origin-center`}>
       <Canvas
         camera={{ position: position, fov: fov }}
         gl={{ alpha: transparent }}
@@ -33,7 +34,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
   );
 }
 
-function Band({ maxSpeed = 50, minSpeed = 0 }) {
+function Band({ maxSpeed = cfg.band.maxSpeed, minSpeed = cfg.band.minSpeed }) {
   const band = useRef(), fixed = useRef(), j1 = useRef(), j2 = useRef(), j3 = useRef(), card = useRef();
   const vec = new THREE.Vector3(), ang = new THREE.Vector3(), rot = new THREE.Vector3(), dir = new THREE.Vector3();
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
@@ -45,10 +46,10 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
   const [hovered, hover] = useState(false);
   const [isSmall, setIsSmall] = useState(() => typeof window !== 'undefined' && window.innerWidth < 1024);
 
-  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]);
-  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]);
-  useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]);
-  useSphericalJoint(j3, card, [[0, 0, 0], [0, 1.50, 0]]);
+  useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], cfg.ropeLength]);
+  useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], cfg.ropeLength]);
+  useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], cfg.ropeLength]);
+  useSphericalJoint(j3, card, [cfg.sphericalJoint.j3Anchor, cfg.sphericalJoint.cardAnchor]);
 
   useEffect(() => {
     if (hovered) {
@@ -95,22 +96,22 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
 
   return (
     <>
-      <group position={[0, 4, 0]}>
-        <RigidBody ref={fixed} {...segmentProps} type="fixed" />
-        <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps}>
+      <group position={cfg.group.position}>
+        <RigidBody position={cfg.fixed.position} ref={fixed} {...segmentProps} type="fixed" />
+        <RigidBody position={cfg.joints.j1} ref={j1} {...segmentProps}>
           <BallCollider args={[0.1]} />
         </RigidBody>
-        <RigidBody position={[1, 0, 0]} ref={j2} {...segmentProps}>
+        <RigidBody position={cfg.joints.j2} ref={j2} {...segmentProps}>
           <BallCollider args={[0.1]} />
         </RigidBody>
-        <RigidBody position={[1.5, 0, 0]} ref={j3} {...segmentProps}>
+        <RigidBody position={cfg.joints.j3} ref={j3} {...segmentProps}>
           <BallCollider args={[0.1]} />
         </RigidBody>
-        <RigidBody position={[2, 0, 0]} ref={card} {...segmentProps} type={dragged ? 'kinematicPosition' : 'dynamic'}>
-          <CuboidCollider args={[0.8, 1.125, 0.01]} />
+        <RigidBody position={cfg.joints.card} ref={card} {...segmentProps} type={dragged ? 'kinematicPosition' : 'dynamic'}>
+          <CuboidCollider args={cfg.cardMesh.collider} />
           <group
-            scale={2.25}
-            position={[0, -1.2, -0.05]}
+            scale={cfg.cardMesh.scale}
+            position={cfg.cardMesh.position}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
             onPointerUp={(e) => (e.target.releasePointerCapture(e.pointerId), drag(false))}
@@ -126,13 +127,13 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
       <mesh ref={band}>
         <meshLineGeometry />
         <meshLineMaterial
-          color="white"
-          depthTest={false}
+          color={cfg.strap.color}
+          depthTest={cfg.strap.depthTest}
           resolution={isSmall ? [1000, 2000] : [1000, 1000]}
           useMap
           map={texture}
-          repeat={[-4, 1]}
-          lineWidth={1}
+          repeat={cfg.strap.repeat}
+          lineWidth={cfg.strap.lineWidth}
         />
       </mesh>
     </>
