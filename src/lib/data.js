@@ -178,4 +178,14 @@ export const certificates = [
   },
 ];
 
-export const contactInfo = {};
+export const contactInfo = {
+  email: 'shubhsomani098@gmail.com',
+  phone: '9999204212',
+  github: 'https://github.com/ShubhxYT',
+  linkedin: 'https://www.linkedin.com/in/shubh-somani',
+  website: 'https://shubhsomani.tech',
+  resume: '/Shubh_Somani_PythonEngineer_2026.pdf',
+};
+
+// Placeholder — user replaces with their real PayPal/Stripe/BuyMeCoffee link
+export const COFFEE_LINK = 'https://www.buymeacoffee.com/shubhsomani';
