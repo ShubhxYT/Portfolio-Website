@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shubh Somani — Resume Terminal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.min.js" defer></script>
+</head>
+<body>
+  <div class="terminal-container">
+    <div class="terminal-window" id="terminal-window">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-btn close"></span>
+          <span class="terminal-btn minimize"></span>
+          <span class="terminal-btn maximize"></span>
+        </div>
+        <div class="terminal-title">shubh@somani: ~/resume</div>
+        <div class="terminal-controls">
+          <button class="terminal-control-btn" id="themeToggle" title="Themes"><i class="fa-solid fa-palette"></i></button>
+          <button class="terminal-control-btn" id="languageToggle" title="Language" hidden><i class="fa-solid fa-globe"></i></button>
+        </div>
+      </div>
+
+      <div class="terminal-content-wrapper">
+        <div class="terminal-output" id="terminal-output"></div>
+        <div class="terminal-input-wrapper">
+          <span class="terminal-prompt">➜</span>
+          <span class="terminal-user">shubh@somani</span>
+          <span class="terminal-colon">:</span>
+          <span class="terminal-path">~/resume</span>
+          <span class="terminal-dollar">$</span>
+          <input type="text" class="terminal-input" id="terminal-input" autocomplete="off" autofocus spellcheck="false" />
+        </div>
+        <div id="snake-game-canvas" style="display:none;"></div>
+      </div>
+
+      <div class="terminal-footer">
+        <a href="/" class="terminal-footer-link">← Back to Portfolio</a>
+        <span class="terminal-footer-separator">·</span>
+        <a href="https://github.com/ShubhxYT" target="_blank" rel="noopener noreferrer" class="terminal-footer-link"><i class="fa-brands fa-github"></i> GitHub</a>
+        <span class="terminal-footer-separator">·</span>
+        <a href="https://www.linkedin.com/in/shubh-somani" target="_blank" rel="noopener noreferrer" class="terminal-footer-link"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="context-menu" id="context-menu" style="display:none;">
+      <div class="context-menu-item" data-action="split-h">Split Horizontally</div>
+      <div class="context-menu-item" data-action="split-v">Split Vertically</div>
+      <div class="context-menu-item" data-action="close-split">Close Split</div>
+    </div>
+
+    <div class="modal" id="theme-modal" style="display:none;">
+      <div class="modal-content">
+        <h3>Choose Theme</h3>
+        <div class="theme-option" data-theme="default">Default (Orange)</div>
+        <div class="theme-option" data-theme="dracula">Dracula</div>
+        <div class="theme-option" data-theme="solarized">Solarized</div>
+        <div class="theme-option" data-theme="nord">Nord</div>
+      </div>
+    </div>
+
+    <div class="modal" id="projects-modal" style="display:none;">
+      <div class="modal-content" id="projects-modal-content"></div>
+    </div>
+
+    <div class="modal" id="skills-modal" style="display:none;">
+      <div class="modal-content" id="skills-modal-content"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => new TerminalResume());
+  </script>
+</body>
+</html>
