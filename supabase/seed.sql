@@ -1,0 +1,9 @@
+insert into gallery (title, description, date, type, media_urls) values
+  ('Hand Tracking — Finger Counting', 'MediaPipe Hands: 21 landmarks per hand real-time. Custom threshold logic distinguishes 0-5 fingers extended.', '2024-09-15', 'image', array['/assets/gallery/hand-counts-1.png']),
+  ('Virtual Paint — Menu', 'Real-time gesture drawing with color palette selection. Uses MediaPipe Hands + OpenCV, runs in <30ms latency per frame.', '2024-09-20', 'image', array['/assets/gallery/virtual-paint.png']),
+  ('Object Detection — Cars', 'YOLOv8l with SORT Kalman tracker counting cars crossing a line. Built on a 12-hour tutorial then extended with custom Indian plate training.', '2024-11-01', 'video', array['/assets/gallery/cv-cars.mp4']),
+  ('Object Detection — People', 'Pedestrian detection + counting via YOLOv8m + SORT. Region masking lets you isolate a specific street corner.', '2024-11-05', 'video', array['/assets/gallery/cv-people.mp4']),
+  ('Object Mask — Car', 'Segmentation-style overlay showing YOLOv8 instance masks. Hot pink = model confidence > 0.85.', '2024-11-08', 'image', array['/assets/gallery/cv-car-mask.png']),
+  ('Object Mask — People', 'Same pipeline as above (YOLOv8m). Each person receives a unique tracking ID via SORT.', '2024-11-10', 'image', array['/assets/gallery/cv-people-mask.png']),
+  ('Face Detection + Mesh', 'MediaPipe Face Mesh with all 468 landmarks visualized. Combined 4-model demo (detection, mesh, blendshapes, geometry).', '2025-01-12', 'video', array['/assets/gallery/cv-face-1.mp4']),
+  ('HappyNest — Luxury Farm Stay', 'Full-stack Next.js + FastAPI website I built for a freelance client. Canvas-scrubbed 91-frame GSAP hero, AI chat concierge with dual-LLM fallback, Supabase lead persistence — serving real guests at $0/month on my homelab. Placeholder image; real property photos added when client shares.', '2026-05-10', 'image', array['/assets/gallery/happynest-stand-in.png']);
