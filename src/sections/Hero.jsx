@@ -91,6 +91,18 @@ export default function Hero() {
           <Lanyard />
         </Suspense>
       </div>
+
+      {/* Mobile-only avatar stand-in (hidden on lg where Lanyard mounts) */}
+      <div className="w-full lg:hidden flex justify-center mt-8">
+        <motion.img
+          src="/assets/avatar/avatar-gpt.png"
+          alt="Shubh Somani"
+          className="w-48 h-48 object-cover border-neoLg border-border shadow-neo"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        />
+      </div>
     </section>
   );
 }

@@ -9,6 +9,7 @@ import { useTheme } from './contexts/ThemeContext.jsx';
 import Home from './pages/Home.jsx';
 import Gallery from './pages/Gallery.jsx';
 import Resume from './pages/Resume.jsx';
+import NotFound from './pages/NotFound.jsx';
 
 function App() {
   const { theme } = useTheme();
@@ -36,6 +37,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/resume" element={<Resume />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>
 
