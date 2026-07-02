@@ -40,8 +40,8 @@ export default function PaperTear() {
     const bottomGray = bottom.querySelector('path[fill="#d0d0d0"]');
 
     const scrollStart = 60;
-    const scrollRange = 160;
-    const initialGapHeight = 200;
+    const scrollRange = 560;
+    const initialGapHeight = 500;
     const minGapHeight = -30;
     const stickerDelay = 30;
     const stickerStart = scrollStart + scrollRange + stickerDelay;
