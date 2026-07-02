@@ -19,7 +19,7 @@ const NAV_LINKS = [
 ];
 
 export default function Header() {
-  const { isNavbarVisible, isMenuOpen, setIsMenuOpen } = useNavbar();
+  const { isNavbarVisible, isMenuOpen, setIsMenuOpen, openResumeModal } = useNavbar();
   const { theme, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
@@ -171,8 +171,8 @@ export default function Header() {
           })),
           {
             label: 'Resume',
-            link: '/resume',
-            onClick: (e) => handleNavClick(e, '/resume', true),
+            link: '#',
+            onClick: (e) => { e.preventDefault(); setIsMenuOpen(false); openResumeModal(); },
           },
         ]}
         socialItems={[

@@ -5,12 +5,14 @@ import BlurInText from '../components/BlurInText.jsx';
 import { ButtonMovingBorder } from '../components/MovingBorderButton.jsx';
 import { AnimatedGradientText } from '../components/AnimatedGradientText.jsx';
 import SocialButton from '../components/SocialButton.jsx';
+import { useNavbar } from '../contexts/NavbarContext.jsx';
 
 const Lanyard = lazy(() => import('../components/Lanyard/Lanyard.jsx'));
 
 const TECH_BADGES = ['Python', 'LangChain', 'PyTorch', 'React', 'FastAPI', 'Docker'];
 
 export default function Hero() {
+  const { openResumeModal } = useNavbar();
   return (
     <section
       id="home"
@@ -48,8 +50,8 @@ export default function Hero() {
             View Projects
           </ButtonMovingBorder>
           <ButtonMovingBorder
-            as="a"
-            href="/resume"
+            as="button"
+            onClick={openResumeModal}
             borderRadius="0px"
             containerClassName="h-16 w-48"
             className="bg-white !text-text border-border font-grotesk font-bold uppercase text-base tracking-wider"

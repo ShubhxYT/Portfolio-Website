@@ -11,6 +11,7 @@ export const useNavbar = () => {
 export const NavbarProvider = ({ children }) => {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
   return (
     <NavbarContext.Provider
@@ -23,6 +24,9 @@ export const NavbarProvider = ({ children }) => {
         closeMenu: () => setIsMenuOpen(false),
         toggleMenu: () => setIsMenuOpen((p) => !p),
         setIsMenuOpen,
+        isResumeModalOpen,
+        openResumeModal: () => setIsResumeModalOpen(true),
+        closeResumeModal: () => setIsResumeModalOpen(false),
       }}
     >
       {children}

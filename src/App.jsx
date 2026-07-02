@@ -3,6 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 import { Agentation } from 'agentation';
 import Header from './components/Header.jsx';
 import Squares from './components/Squares.jsx';
+import TerminalModal from './components/TerminalModal.jsx';
 import { NavbarProvider } from './contexts/NavbarContext.jsx';
 import { useTheme } from './contexts/ThemeContext.jsx';
 import Home from './pages/Home.jsx';
@@ -39,6 +40,7 @@ function App() {
         </AnimatePresence>
 
         {process.env.NODE_ENV === "development" && <Agentation />}
+        <TerminalModal />
       </div>
     </NavbarProvider>
   );
