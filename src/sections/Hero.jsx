@@ -63,7 +63,7 @@ export default function Hero() {
         <div className="flex items-center gap-3 mt-1">
           <SocialButton kind="github" href="https://github.com/ShubhxYT" size={44} />
           <SocialButton kind="linkedin" href="https://www.linkedin.com/in/shubh-somani" size={44} />
-          <SocialButton kind="globe" href="https://shubhsomani.tech" size={44} />
+
           <SocialButton kind="email" href="mailto:shubhsomani098@gmail.com" size={44} />
         </div>
 
