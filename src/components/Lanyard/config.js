@@ -30,7 +30,7 @@ export default {
     card: [2, 0, 0],
   },
 
-  ropeLength: 1,
+  ropeLength: 0.8,
 
   sphericalJoint: {
     j3Anchor: [0, 0, 0],
