@@ -79,9 +79,9 @@ export default function About() {
           {STATS.map((s) => (
             <div
               key={s.label}
-              className="p-6 border-4 border-border bg-white shadow-neo flex flex-col items-center justify-center text-center hover:translate-x-1 hover:translate-y-1 hover:shadow-none hover:bg-accent transition-all"
+              className="p-6 border-4 border-border bg-white shadow-neo flex flex-col items-center justify-center text-center hover:translate-x-1 hover:translate-y-1 hover:shadow-none hover:bg-accent transition-all group"
             >
-              <div className="font-grotesk font-bold text-4xl md:text-5xl text-primary hover:text-text transition-colors">
+              <div className="font-grotesk font-bold text-4xl md:text-5xl text-primary group-hover:text-text transition-colors">
                 <Counter value={s.value} suffix={s.suffix} />
               </div>
               <div className="font-grotesk font-bold text-xs uppercase mt-2 text-text">{s.label}</div>
