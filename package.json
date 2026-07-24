@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@react-three/drei": "^9.105.0",
@@ -31,11 +32,13 @@
     "three": "^0.167.1"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.47.0",
     "@vitejs/plugin-react": "^4.7.0",
     "agentation": "^3.0.2",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.3",
-    "vite": "^6.4.3"
+    "vite": "^6.4.3",
+    "wrangler": "^4.114.0"
   }
 }
