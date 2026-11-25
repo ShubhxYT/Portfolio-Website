@@ -5,7 +5,11 @@ export default function ProjectCard({ project, onOpen }) {
   return (
     <motion.div
       whileHover={{ y: -4 }}
+      role="button"
+      tabIndex={0}
       onClick={() => onOpen(project)}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen(project); } }}
+      aria-label={`Open project ${project.title}`}
       className="cursor-pointer border-neo border-border bg-white shadow-neoSm hover:shadow-neo transition-all overflow-hidden flex flex-col relative"
     >
       <div className={`h-32 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>

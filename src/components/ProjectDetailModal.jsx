@@ -38,7 +38,7 @@ export default function ProjectDetailModal({ project, onClose }) {
             <span className="font-grotesk font-bold text-6xl text-white mix-blend-overlay drop-shadow">
               {project.title.split(' ').map((w) => w[0]).join('').slice(0, 4)}
             </span>
-            <button onClick={onClose} className="absolute top-3 right-3 w-10 h-10 flex items-center justify-center bg-yellow border-neoSm border-border shadow-neoSm text-text">
+            <button type="button" onClick={onClose} aria-label="Close project details" className="absolute top-3 right-3 w-10 h-10 flex items-center justify-center bg-yellow border-neoSm border-border shadow-neoSm text-text">
               <FaTimes />
             </button>
             {project.featured && (

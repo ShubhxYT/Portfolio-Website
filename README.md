@@ -1,9 +1,21 @@
-# shubh-portfolio-v3
+# Shubh Somani — portfolio (shubhsomani.tech)
 
-Hybrid React portfolio for Shubh Somani. Neo-brutalist design + 3D physics lanyard + interactive terminal resume.
+The canonical site at https://shubhsomani.tech is the Cloudflare Worker named `portfolio` (Workers Static Assets + a `/api/chat` module). It is a direct Wrangler upload, not a git-connected Pages project.
+
+`new.shubhsomani.tech` is a separate Coolify app from this repo's `main` branch and can lag the apex.
 
 ## Dev
+
 `npm install && npm run dev`
 
 ## Build
+
 `npm run build && npm run preview`
+
+To ship a **preview version** of the Worker (does not change production):
+
+```
+npx wrangler versions upload
+```
+
+Do not run `wrangler deploy` unless you intend to promote the new version to shubhsomani.tech.

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { FaGithub, FaLinkedin, FaGlobe, FaEnvelope, FaPhone, FaCoffee } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaGlobe, FaEnvelope, FaPhone } from 'react-icons/fa';
 import apiService from '../services/api.js';
-import { contactInfo, COFFEE_LINK } from '../lib/data.js';
+import { contactInfo } from '../lib/data.js';
 
 function Card({ icon: Icon, label, value, href }) {
   return (
@@ -55,9 +55,12 @@ export default function Contact() {
         {/* Form */}
         <form onSubmit={handleSubmit} className="p-6 border-neo border-border bg-white shadow-neo flex flex-col gap-4">
           <div>
-            <label className="font-mono text-xs uppercase text-text/60 block mb-1">Name</label>
+            <label htmlFor="contact-name" className="font-mono text-xs uppercase text-text/60 block mb-1">Name</label>
             <input
+              id="contact-name"
+              name="name"
               type="text"
+              autoComplete="name"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               required
@@ -65,9 +68,12 @@ export default function Contact() {
             />
           </div>
           <div>
-            <label className="font-mono text-xs uppercase text-text/60 block mb-1">Email</label>
+            <label htmlFor="contact-email" className="font-mono text-xs uppercase text-text/60 block mb-1">Email</label>
             <input
+              id="contact-email"
+              name="email"
               type="email"
+              autoComplete="email"
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               required
@@ -75,8 +81,10 @@ export default function Contact() {
             />
           </div>
           <div>
-            <label className="font-mono text-xs uppercase text-text/60 block mb-1">Message</label>
+            <label htmlFor="contact-message" className="font-mono text-xs uppercase text-text/60 block mb-1">Message</label>
             <textarea
+              id="contact-message"
+              name="message"
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               required
@@ -105,21 +113,8 @@ export default function Contact() {
           <Card icon={FaLinkedin} label="LinkedIn" value="shubh-somani" href={contactInfo.linkedin} />
           <Card icon={FaGlobe} label="Website" value="shubhsomani.tech" href={contactInfo.website} />
           <Card icon={FaEnvelope} label="Email" value={contactInfo.email} href={`mailto:${contactInfo.email}`} />
-          <Card icon={FaPhone} label="Phone" value={contactInfo.phone} href={`tel:${contactInfo.phone}`} />
+          <Card icon={FaPhone} label="Phone" value={contactInfo.phone} href={contactInfo.phoneHref} />
 
-          {/* Coffee CTA — placeholder link, user replaces later */}
-          <a
-            href={COFFEE_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-3 mt-2 p-4 border-neo border-border bg-pink text-white shadow-neo hover:shadow-neoLg hover:-translate-y-1 transition-all"
-          >
-            <FaCoffee className="text-2xl" />
-            <div>
-              <div className="font-grotesk font-bold text-base">Buy me a coffee</div>
-              <div className="font-mono text-xs uppercase opacity-80">Support more $0/month infra experiments</div>
-            </div>
-          </a>
         </div>
       </div>
     </section>

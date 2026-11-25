@@ -15,12 +15,19 @@ export const apiService = {
   // Gallery
   async getGallery() {
     if (!supabase) return [];
-    const { data, error } = await supabase
-      .from('gallery')
-      .select('*')
-      .order('date', { ascending: false });
-    if (error) { console.error('getGallery:', error); return []; }
-    return data || [];
+    try {
+      const query = supabase
+        .from('gallery')
+        .select('*')
+        .order('date', { ascending: false });
+      const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error('gallery-timeout')), 5000));
+      const { data, error } = await Promise.race([query, timeout]);
+      if (error) { console.error('getGallery:', error); return []; }
+      return data || [];
+    } catch (err) {
+      console.error('getGallery:', err);
+      return [];
+    }
   },
 
   async getGalleryComments(galleryId) {

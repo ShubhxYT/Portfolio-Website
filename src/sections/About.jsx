@@ -31,26 +31,30 @@ export default function About() {
       <div className="grid lg:grid-cols-2 gap-8">
         <div className="p-8 border-4 border-border bg-white shadow-neo">
           <p className="font-grotesk text-text leading-relaxed text-base md:text-lg">
-            Self-taught artificial intelligence engineer and third-year computer
-            science student with deep expertise building{' '}
-            <ScrollHighlight color="yellow">production-grade RAG systems</ScrollHighlight>
+            Self-taught AI engineer and third-year computer science student
+            building{' '}
+            <ScrollHighlight color="yellow">production RAG systems</ScrollHighlight>
             ,{' '}
-            <ScrollHighlight color="pink">computer vision pipelines</ScrollHighlight>
+            <ScrollHighlight color="pink">LangGraph agents</ScrollHighlight>
             , and{' '}
-            <ScrollHighlight color="cyan">full-stack AI applications</ScrollHighlight>
-            . Engineered{' '}
-            <ScrollHighlight color="green">28+ GitHub repositories</ScrollHighlight>{' '}
-            spanning multi-service LLM orchestration, LangGraph state machines, and
-            self-hosted infrastructure.
+            <ScrollHighlight color="cyan">voice AI</ScrollHighlight>
+            {' '}— all running on self-hosted infrastructure.{' '}
+            <ScrollHighlight color="green">23 public GitHub repositories</ScrollHighlight>{' '}
+            spanning hybrid retrieval, document-grounded Q&A, and full-stack
+            AI applications.
           </p>
           <p className="font-grotesk text-text leading-relaxed text-base md:text-lg mt-4">
-            Combines strong{' '}
-            <ScrollHighlight color="cyan">Python/TypeScript engineering</ScrollHighlight>{' '}
-            with hands-on DevOps to ship real products — from{' '}
-            <ScrollHighlight color="pink">bare metal to browser</ScrollHighlight>
-            . Runs 10+ live services across 5 custom domains with{' '}
-            <ScrollHighlight color="yellow">zero recurring cost</ScrollHighlight>{' '}
-            on repurposed consumer hardware.
+            Combines{' '}
+            <ScrollHighlight color="cyan">Python and TypeScript</ScrollHighlight>{' '}
+            with hands-on DevOps (Docker, Proxmox, Coolify) to ship from bare
+            metal to production. Runs{' '}
+            <ScrollHighlight color="pink">21 Coolify apps</ScrollHighlight>
+            {' '}and 50+ services across{' '}
+            <ScrollHighlight color="yellow">20+ custom domains</ScrollHighlight>{' '}
+            on repurposed hardware, at{' '}
+            <ScrollHighlight color="green">zero per-service subscription cost</ScrollHighlight>
+            — including a live RAG platform, a Pipecat voice tutor, and an AI
+            concierge at happynestfarm.in.
           </p>
           <p className="font-grotesk text-text leading-relaxed text-base md:text-lg mt-4">
             Passionate about pushing the boundaries of what's possible with{' '}
@@ -64,7 +68,7 @@ export default function About() {
           <div className="flex gap-3 mt-6">
             <ButtonMovingBorder
               as="a"
-              href="/Shubh_Somani_PythonEngineer_2026.pdf"
+              href="/Shubh_Somani_CV_2026.pdf"
               target="_blank"
               borderRadius="0px"
               containerClassName="h-12 w-40"

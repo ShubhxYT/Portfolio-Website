@@ -1,0 +1,30 @@
+{
+  "name": "portfolio",
+  "main": "worker/chat.js",
+  "compatibility_date": "2026-11-02",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "observability": {
+    "enabled": true
+  },
+  // Non-secret bindings copied from production version bb2dad0a so /api/chat
+  // keeps its rate limit and VPC service. Plain-text vars and secrets are
+  // inherited with `wrangler versions upload --keep-vars`. Do not put secrets here.
+  "ratelimits": [
+    {
+      "name": "CHAT_LIMITER",
+      "namespace_id": "923073",
+      "simple": { "limit": 6, "period": 60 }
+    }
+  ],
+  "vpc_services": [
+    {
+      "binding": "HERMES_VPC",
+      "service_id": "01a1a63f-97c2-71a1-8d80-f4c411ec12af"
+    }
+  ]
+}

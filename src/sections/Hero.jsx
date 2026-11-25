@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import TypingRoles from '../components/TypingRoles.jsx';
 import BlurInText from '../components/BlurInText.jsx';
@@ -6,6 +6,8 @@ import { ButtonMovingBorder } from '../components/MovingBorderButton.jsx';
 import { AnimatedGradientText } from '../components/AnimatedGradientText.jsx';
 import SocialButton from '../components/SocialButton.jsx';
 import { useNavbar } from '../contexts/NavbarContext.jsx';
+import { contactInfo } from '../lib/data.js';
+import { FaDownload } from 'react-icons/fa';
 
 const Lanyard = lazy(() => import('../components/Lanyard/Lanyard.jsx'));
 
@@ -13,6 +15,16 @@ const TECH_BADGES = ['Python', 'LangChain', 'PyTorch', 'React', 'FastAPI', 'Dock
 
 export default function Hero() {
   const { openResumeModal } = useNavbar();
+  const [showLanyard, setShowLanyard] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)');
+    const update = () => setShowLanyard(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
   return (
     <section
       id="home"
@@ -35,7 +47,7 @@ export default function Hero() {
         </div>
 
         <BlurInText
-          text="Self-taught AI engineer and 3rd-year CS student building production RAG systems, computer vision pipelines, and full-stack apps. 28+ repos across LLM orchestration, LangGraph state machines, and self-hosted infrastructure — all running on repurposed hardware at $0/month."
+          text="Self-taught AI engineer and 3rd-year CS student building production RAG systems, computer vision pipelines, and full-stack apps. 23 public repos across LLM orchestration, LangGraph state machines, and self-hosted infrastructure — all running on repurposed hardware at $0/month."
           className="text-text text-base md:text-lg max-w-xl leading-relaxed"
         />
 
@@ -56,8 +68,16 @@ export default function Hero() {
             containerClassName="h-16 w-48"
             className="bg-white !text-text border-border font-grotesk font-bold uppercase text-base tracking-wider"
           >
-            Open Resume
+            Ask My AI
           </ButtonMovingBorder>
+          <a
+            href={contactInfo.resume}
+            download
+            aria-label="Download resume PDF"
+            className="h-16 w-16 flex items-center justify-center border-neo border-border bg-primary text-black shadow-neoSm hover:shadow-neo hover:-translate-y-0.5 transition-all"
+          >
+            <FaDownload className="text-xl" aria-hidden="true" />
+          </a>
         </div>
 
         <div className="flex items-center gap-3 mt-1">
@@ -81,23 +101,25 @@ export default function Hero() {
 
       {/* Right column: 3D lanyard */}
       <div className="flex-1 w-full hidden lg:block self-stretch">
-        <Suspense
-          fallback={
-            <div className="h-[600px] flex items-center justify-center text-text font-mono text-sm">
-              Loading 3D…
-            </div>
-          }
-        >
-          <Lanyard />
-        </Suspense>
+        {showLanyard && (
+          <Suspense
+            fallback={
+              <div className="h-[600px] flex items-center justify-center text-text font-mono text-sm">
+                Loading 3D…
+              </div>
+            }
+          >
+            <Lanyard />
+          </Suspense>
+        )}
       </div>
 
       {/* Mobile-only avatar stand-in (hidden on lg where Lanyard mounts) */}
       <div className="w-full lg:hidden flex justify-center mt-8">
         <motion.img
-          src="/assets/avatar/avatar-gpt.png"
+          src="/assets/avatar/avatar.webp"
           alt="Shubh Somani"
-          className="w-48 h-48 object-cover border-neoLg border-border shadow-neo"
+          width={192} height={192} className="w-48 h-48 object-cover border-neoLg border-border shadow-neo"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}

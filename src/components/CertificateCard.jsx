@@ -5,7 +5,11 @@ export default function CertificateCard({ cert, onOpen }) {
   return (
     <motion.div
       whileHover={{ y: -3 }}
+      role="button"
+      tabIndex={0}
       onClick={() => onOpen(cert)}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen(cert); } }}
+      aria-label={`Open certificate ${cert.title}`}
       className="cursor-pointer p-5 border-neo border-border bg-white shadow-neoSm hover:shadow-neo transition-all"
     >
       <div className="flex items-start gap-3">
