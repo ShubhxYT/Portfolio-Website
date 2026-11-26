@@ -19,3 +19,8 @@ npx wrangler versions upload
 ```
 
 Do not run `wrangler deploy` unless you intend to promote the new version to shubhsomani.tech.
+
+Pushing to `main` also triggers Cloudflare Workers Builds (the GitHub check
+"Workers Builds: portfolio"), which deploys production automatically.
+Non-secret vars must stay in wrangler.jsonc. Do not commit HERMES_URL;
+it is stored as a Worker secret so those deploys keep it.

@@ -11,9 +11,14 @@
   "observability": {
     "enabled": true
   },
-  // Non-secret bindings copied from production version bb2dad0a so /api/chat
-  // keeps its rate limit and VPC service. Plain-text vars and secrets are
-  // inherited with `wrangler versions upload --keep-vars`. Do not put secrets here.
+  // Non-secret vars and bindings must be declared here. Cloudflare Workers
+  // Builds (GitHub git integration on this repo) runs `wrangler deploy` on
+  // push to main, which deletes undeclared plain-text vars. Do not put
+  // secrets or HERMES_URL in this file; HERMES_URL is a Worker secret.
+  "vars": {
+    "CHAT_ENABLED": "true",
+    "TRANSPORT": "vpc"
+  },
   "ratelimits": [
     {
       "name": "CHAT_LIMITER",
