@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
-import { FaStar } from 'react-icons/fa';
+import { FaStar, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 export default function ProjectCard({ project, onOpen }) {
+  const stop = (e) => e.stopPropagation();
+
   return (
     <motion.div
       whileHover={{ y: -4 }}
@@ -32,6 +34,34 @@ export default function ProjectCard({ project, onOpen }) {
             <span className="font-mono text-[10px] text-text/60">+{project.tags.length - 3}</span>
           )}
         </div>
+        {(project.github || project.demo) && (
+          <div className="flex flex-wrap gap-2 pt-3" onClick={stop} onKeyDown={stop}>
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={stop}
+                aria-label={`${project.title} source on GitHub`}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 border-neo border-border bg-bg shadow-neoSm hover:shadow-neo text-xs font-grotesk font-bold transition-all"
+              >
+                <FaGithub /> Source
+              </a>
+            )}
+            {project.demo && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={stop}
+                aria-label={`${project.title} live demo`}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 border-neo border-border bg-yellow shadow-neoSm hover:shadow-neo text-xs font-grotesk font-bold transition-all"
+              >
+                <FaExternalLinkAlt /> Live Demo
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </motion.div>
   );

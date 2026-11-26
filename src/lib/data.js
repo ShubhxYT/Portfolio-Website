@@ -115,7 +115,7 @@ export const projects = [
     full: 'A file-grounded voice tutor with a camera-free learner website. A Pipecat voice bot answers only from an ingested course corpus, speaks through a self-hosted voicebox TTS server, and streams real bot audio to a React learner UI. An optional behavior-sensing backend remains available for developer runs. The repo includes OKF-grounded tutoring, Docling ingestion, a React learner UI with a shared lipsync engine, Twilio telephony, and a vision engagement worker.',
     tags: ['Pipecat', 'OKF', 'React', 'Groq', 'Docling', 'Twilio'],
     github: 'https://github.com/ShubhxYT/Project-Eklavya',
-    demo: null,
+    demo: 'https://conv.shubhsomani.tech/learn/',
     featured: true,
   },
   {
@@ -163,7 +163,7 @@ export const projects = [
     full: 'A self-hosted homelab on a Proxmox hypervisor (i7-10700K, repurposed consumer hardware) with a TrueNAS SCALE NVMe pool and ZFS-mirrored LXC storage. Coolify runs 21 applications and 2 databases, alongside a 50+ container/service stack, exposed across 20+ custom domains through FRP tunnels, Tailscale, Cloudflare Tunnels, and Nginx. The production AI/data layer includes pgvector, self-hosted Supabase, Ollama, Voicebox (Kokoro) TTS, Immich, and Langfuse/LangSmith — at zero per-service subscription cost.',
     tags: ['Proxmox', 'Docker', 'Coolify', 'FRP', 'Tailscale', 'Cloudflare', 'Supabase', 'Ollama', 'TrueNAS'],
     github: null,
-    demo: 'https://happynestfarm.in',
+    demo: null,
     featured: false,
   }
 ];
